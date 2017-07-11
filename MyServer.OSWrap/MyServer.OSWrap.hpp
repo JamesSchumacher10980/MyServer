@@ -22,7 +22,7 @@ namespace MyServer
                 CAllocator() throw();
                 virtual ~CAllocator();
               
-                virutal void * AllocateMemory(size_t n) throw();
+                virtual void * AllocateMemory(size_t n) throw();
                 virtual bool FreeMemory(void * lpBuffer) throw();
               
             protected:
