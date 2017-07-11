@@ -14,6 +14,12 @@ namespace MyServer
 {
     typedef void * OSHandle;
     
+#ifdef OSWRAP_PLATFORM_32BIT
+    typedef OSSizeT unsigned int;
+#else
+    typedef OSSizeT unsigned long long;
+#endif
+    
     namespace OS
      
         class OSWRAP_CLASS CAllocator
@@ -22,7 +28,7 @@ namespace MyServer
                 CAllocator() throw();
                 virtual ~CAllocator();
               
-                virtual void * AllocateMemory(size_t n) throw();
+                virtual void * AllocateMemory) throw();
                 virtual bool FreeMemory(void * lpBuffer) throw();
               
             protected:
