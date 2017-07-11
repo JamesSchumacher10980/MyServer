@@ -30,6 +30,7 @@ namespace MyServer
                 Normal = 0,
                 ZeroMemoryBlock = 1
             };
+            
             virtual ~IAllocator();
             
             virtual void * AllocateMemory(OSSizeT nSize,
@@ -38,7 +39,14 @@ namespace MyServer
             virtual OSSizeT SizeOfMemory(const void * lpBuffer) const = 0;
         };
         
-        
+        class OSWRAP_CLASS CHeapAllocator : public IAllocator
+        {
+        public:
+            CHeapAllocator();
+            virtual ~CHeapAocator();
+        protected:
+            OSHandle mv_hHeap;
+        };
     }
 }
 
