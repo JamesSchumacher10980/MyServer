@@ -22,17 +22,19 @@ namespace MyServer
     
     namespace OS
     {
-        class OSWRAP_CLASS CAllocator
+        class OSWRAP_CLASS IAllocator
         {
         public:
-            CAllocator() throw();
-            virtual ~CAllocator();
-              
-            virtual void * AllocateMemory(OSSizeT nSize) throw();
-            virtual bool FreeMemory(void * lpBuffer) throw();
-              
-        protected:
-            OSHandle mv_hOSHeap;
+            enum AllocationOptions
+            {
+                Normal = 0,
+                ZeroMemoryBlock = 1
+            };
+            virtual ~IAllocator();
+            
+            virtual void * AllocateMemory(OSSizeT nSize,
+                                         AllocationOptions enOptions) throw() = 0;
+            virtual bool FreeMemory(void * lpBuf) = 0;
         };
     }
 }
