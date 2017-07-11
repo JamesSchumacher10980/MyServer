@@ -21,7 +21,7 @@ namespace MyServer
 #endif
     
     namespace OS
-     
+    {
         class OSWRAP_CLASS CAllocator
         {
         public:
