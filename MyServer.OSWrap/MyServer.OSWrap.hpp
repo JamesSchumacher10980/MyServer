@@ -49,7 +49,7 @@ namespace MyServer
             virtual bool FreeMemory(void * lpBuf) throw();
             virtuak OSSizeT SizeOfMemory(const void * lpBuf) const;
         protected:
-            OSHandle mv_hHeap
+            OSHandle mv_hHeap;
         };
     }
 }
