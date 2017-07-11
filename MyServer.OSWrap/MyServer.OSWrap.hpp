@@ -44,8 +44,12 @@ namespace MyServer
         public:
             CHeapAllocator();
             virtual ~CHeapAocator();
+            
+            virtual void *   AllocateMemory(OSSizeT nSize, AllicationOptions enOptions) throw();
+            virtual bool FreeMemory(void * lpBuf) throw();
+            virtuak OSSizeT SizeOfMemory(const void * lpBuf) const;
         protected:
-            OSHandle mv_hHeap;
+            OSHandle mv_hHeap
         };
     }
 }
