@@ -14,24 +14,24 @@ namespace MyServer
 {
     typedef void * OSHandle;
     
-#ifdef OSWRAP_PLATFORM_32BIT
+#if defined(OSWRAP_WINDOWS_32BIT)
     typedef OSSizeT unsigned int;
-#else
-    typedef OSSizeT unsigned long long;
+#elif defined(OSWRAP_WINDOWS_64BIT)
+    typedef OSSizeT unsigned __int64;
 #endif
     
     namespace OS
      
         class OSWRAP_CLASS CAllocator
         {
-            public:
-                CAllocator() throw();
-                virtual ~CAllocator();
+        public:
+            CAllocator() throw();
+            virtual ~CAllocator();
               
-                virtual void * AllocateMemory) throw();
-                virtual bool FreeMemory(void * lpBuffer) throw();
+            virtual void * AllocateMemory(OSSizeT nSize) throw();
+            virtual bool FreeMemory(void * lpBuffer) throw();
               
-            protected:
+        protected:
             OSHandle mv_hOSHeap;
         };
     }
