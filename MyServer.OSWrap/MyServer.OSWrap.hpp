@@ -37,6 +37,8 @@ namespace MyServer
             virtual bool FreeMemory(void * lpBuf) = 0;
             virtual OSSizeT SizeOfMemory(const void * lpBuffer) const = 0;
         };
+        
+        
     }
 }
 
